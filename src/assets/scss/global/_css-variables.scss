@@ -1,0 +1,48 @@
+body {
+	--transition-speed: 0.2s;
+	--transition-timing-function: ease-in-out;
+
+	--animation-speed: 5s;
+
+	--outline: 2px solid red;
+	--outline-offset: 2px;
+
+	--font-family: 'Nunito', sans-serif;
+
+	--font-size-base: 16;
+	--line-height-base: 1.5;
+
+	--font-size-mobile: 14px;
+	--line-height-mobile: 1.5;
+
+	--color--white: #ffffff;
+
+	--color--dark: #181818;
+	--color--dark-light: rgb(24, 24, 24, 0.8);
+
+	--color--primary: #fe5f1e;
+
+	--color--shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+	--color--border: rgb(20, 30, 27, 0.1);
+
+	--static--color--white: #ffffff;
+	--static--color--dark: #181818;
+	--static--color--gray: #f3f3f3;
+
+	&#dark {
+		--color--white: #000000;
+
+		--color--dark: #ffffff;
+		--color--dark-light: rgba(255, 255, 255, 0.8);
+
+		--color--shadow: 0px 5px 15px rgba(255, 255, 255, 0.09);
+		--color--border: rgb(255, 255, 255);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		--transition-speed: 0s;
+		--transition-timing-function: linear;
+
+		--animation-speed: 0s;
+	}
+}

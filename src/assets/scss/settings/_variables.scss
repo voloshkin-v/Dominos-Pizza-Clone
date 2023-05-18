@@ -1,0 +1,43 @@
+$container-width: 1320px;
+$container-padding: 16px;
+
+$font-size-base: var(--font-size-base);
+$line-height-base: var(--line-height-base);
+
+$font-size-mobile: var(--font-size-mobile);
+$line-height-mobile: var(--line-height-mobile);
+
+$transition-speed: var(--transition-speed);
+$transition-timing-function: var(--transition-timing-function);
+$transition: $transition-speed $transition-timing-function;
+
+$font-family: var(--font-family);
+
+$outline: var(--outline);
+$outline-offset: var(--outline-offset);
+
+$color--gray-line: blue;
+
+$color--white: var(--color--white);
+
+$color--dark: var(--color--dark);
+$color--dark-light: var(--color--dark-light);
+
+$color--primary: var(--color--primary);
+
+$color--shadow: var(--color--shadow);
+$color--border: var(--color--border);
+
+$static--color--white: var(--static--color--white);
+$static--color--dark: var(--static--color--dark);
+$static--color--gray: var(--static--color--gray);
+
+$breakpoints: (
+	xs: 375px,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1440px,
+	max: 1920px,
+);

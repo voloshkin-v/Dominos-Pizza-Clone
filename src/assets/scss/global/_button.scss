@@ -1,0 +1,119 @@
+.button {
+	display: inline-block;
+	background-color: $color--primary;
+	border-radius: 30px;
+	padding: 10px 20px;
+	min-width: 100px;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid transparent;
+	color: $static--color--white;
+	font-weight: 600;
+
+	font-size: 14px;
+
+	@include media('>=md') {
+		font-size: 16px;
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	&--circle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		min-width: 32px;
+		padding: 0;
+		border-width: 2px;
+	}
+
+	&--black {
+		background-color: $static--color--dark;
+	}
+
+	&--outline {
+		background: $static--color--white;
+		border-color: $color--primary;
+		color: $color--primary;
+	}
+
+	&__delimiter {
+		width: 1px;
+		height: 15px;
+		background-color: $static--color--white;
+		margin-left: 10px;
+		margin-right: 10px;
+
+		@include media('>=md') {
+			height: 25px;
+			margin-left: 14px;
+			margin-right: 14px;
+		}
+	}
+
+	&--add {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		padding: 6px 14px;
+		min-width: auto;
+
+		@include media('>=md') {
+			padding: 8px 21px;
+		}
+
+		i {
+			display: inline-block;
+			border-radius: 30px;
+			background-color: $color--primary;
+			color: $static--color--white;
+			font-style: normal;
+			font-size: 10px;
+			min-width: 20px;
+			height: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			margin-left: 5px;
+			letter-spacing: 0;
+			line-height: 1;
+		}
+	}
+
+	&--cart {
+		display: flex;
+		align-items: center;
+		line-height: 23px;
+		padding: 10px 12px;
+
+		span {
+			line-height: 1;
+		}
+
+		@include media('>=md') {
+			padding: 12px 25px;
+		}
+
+		svg {
+			width: 16px;
+			margin-right: 6px;
+			margin-bottom: 1px;
+
+			@include media('>=md') {
+				width: auto;
+				max-width: 18px;
+			}
+		}
+	}
+}
+
+button {
+	border: 0;
+	background-color: transparent;
+}

@@ -1,0 +1,97 @@
+@import '../../assets/scss/settings/init';
+
+.pizza-block {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	color: $color--dark;
+
+	&__image {
+		position: relative;
+		margin-bottom: 10px;
+
+		&::before {
+			content: '';
+			display: block;
+			padding-bottom: 60%;
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 15px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 10px;
+		flex: 1;
+	}
+
+	&__selector {
+		display: flex;
+		background-color: $static--color--gray;
+		color: $static--color--dark;
+		border-radius: 10px;
+		flex-direction: column;
+		padding: 6px;
+		gap: 6px;
+
+		ul {
+			display: flex;
+			flex: 1;
+			font-size: 12px;
+
+			@include media('>=md') {
+				font-size: 14px;
+			}
+
+			li {
+				flex: 1;
+
+				button {
+					color: currentColor;
+					width: 100%;
+					font-weight: 600;
+					cursor: pointer;
+					padding: 8px 6px;
+
+					&.active {
+						background: $static--color--white;
+						box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+						border-radius: 5px;
+						cursor: auto;
+
+						#dark & {
+							box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		font-size: 14px;
+		margin: 15px 0 0;
+
+		@include media('>=md') {
+			flex-direction: row;
+			justify-content: space-between;
+			font-size: 16px;
+		}
+	}
+
+	&__price {
+		font-weight: 700;
+		text-align: left;
+	}
+}

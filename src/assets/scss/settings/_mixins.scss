@@ -1,0 +1,36 @@
+@mixin link($height: 1) {
+	transition: background-size $transition, color $transition;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+	background-size: 0% #{$height}px;
+
+	&:hover {
+		background-size: 100% #{$height}px;
+		background-position: 0 100%;
+	}
+}
+
+@mixin link-underline($height: 1) {
+	transition: background-size $transition, color $transition;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 100% #{$height}px;
+
+	&:hover {
+		background-size: 0% #{$height}px;
+		background-position: 100% 100%;
+	}
+}
+
+@mixin scrollbar-hidden() {
+	overflow-y: auto;
+
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		width: 0;
+		display: none;
+	}
+}

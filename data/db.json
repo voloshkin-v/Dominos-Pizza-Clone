@@ -1,0 +1,191 @@
+{
+	"pizzas": [
+		{
+			"id": 0,
+			"imageUrl": "images/diabolo-pizzapieces.webp",
+			"imageAlt": "Pizza Diabolo Pizzapieces",
+			"title": "Pizza Diablo",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 10,
+			"category": 1,
+			"rating": 4
+		},
+		{
+			"id": 1,
+			"imageUrl": "images/chorizo-pizzapieces.webp",
+			"imageAlt": "Pizza Chorizo",
+			"title": "Pizza Chorizo",
+			"types": [0],
+			"sizes": [26, 40],
+			"price": 12,
+			"category": 1,
+			"rating": 6
+		},
+		{
+			"id": 2,
+			"imageUrl": "images/beef-pizzapieces.webp",
+			"imageAlt": "Pizza with veal",
+			"title": "Pizza With Veal",
+			"types": [0],
+			"sizes": [26, 40],
+			"price": 14,
+			"category": 1,
+			"rating": 4
+		},
+		{
+			"id": 3,
+			"imageUrl": "images/turkey-pizzapieces.webp",
+			"imageAlt": "Pizza with turkey",
+			"title": "Pizza With Turkey",
+			"types": [1],
+			"sizes": [26, 30, 40],
+			"price": 8,
+			"category": 1,
+			"rating": 2
+		},
+		{
+			"id": 4,
+			"imageUrl": "images/pizza-beef-chips.webp",
+			"imageAlt": "Pizza Beef & Chips",
+			"title": "Pizza Beef & Chips",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 20,
+			"category": 1,
+			"rating": 8
+		},
+		{
+			"id": 5,
+			"imageUrl": "images/tekhas.webp",
+			"imageAlt": "Pizza Texas",
+			"title": "Pizza Texas",
+			"types": [0],
+			"sizes": [30, 40],
+			"price": 17,
+			"category": 2,
+			"rating": 2
+		},
+		{
+			"id": 6,
+			"imageUrl": "images/pepperony-y-tomaty.webp",
+			"imageAlt": "Pizza Pepperoni with tomatoes",
+			"title": "Pizza Pepperoni with tomatoes",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 11,
+			"category": 2,
+			"rating": 9
+		},
+		{
+			"id": 7,
+			"imageUrl": "images/manhatten.webp",
+			"imageAlt": "Pizza Manhattan",
+			"title": "Pizza Manhattan",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 10,
+			"category": 2,
+			"rating": 10
+		},
+		{
+			"id": 8,
+			"imageUrl": "images/vetchina-i-griby.webp",
+			"imageAlt": "Pizza Ham & mushrooms",
+			"title": "Pizza Ham & mushrooms",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 16,
+			"category": 2,
+			"rating": 10
+		},
+		{
+			"id": 9,
+			"imageUrl": "images/marharyta.webp",
+			"imageAlt": "Pizza Margarita",
+			"title": "Pizza Margarita",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 3,
+			"rating": 7
+		},
+		{
+			"id": 10,
+			"imageUrl": "images/bbq.webp",
+			"imageAlt": "Pizza BBQ",
+			"title": "Pizza BBQ",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 3,
+			"rating": 7
+		},
+		{
+			"id": 11,
+			"imageUrl": "images/karbonara.webp",
+			"imageAlt": "Pizza Carbonara",
+			"title": "Pizza Carbonara",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 3,
+			"rating": 7
+		},
+		{
+			"id": 12,
+			"imageUrl": "images/toskana.webp",
+			"imageAlt": "Pizza Toscana",
+			"title": "Pizza Toscana",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 4,
+			"rating": 7
+		},
+		{
+			"id": 13,
+			"imageUrl": "images/spaisy.webp",
+			"imageAlt": "Pizza Spicy",
+			"title": "Pizza Spicy",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 4,
+			"rating": 7
+		},
+		{
+			"id": 14,
+			"imageUrl": "images/bbq-delux.webp",
+			"imageAlt": "Pizza BBQ Delux",
+			"title": "Pizza BBQ Delux",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 5,
+			"rating": 10
+		},
+		{
+			"id": 15,
+			"imageUrl": "images/miunkhenskaia-delux.webp",
+			"imageAlt": "Pizza Munich Delux",
+			"title": "Pizza Munich Delux",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 5,
+			"rating": 9
+		},
+		{
+			"id": 16,
+			"imageUrl": "images/extravaganzza.webp",
+			"imageAlt": "Pizza Ekstravaganza",
+			"title": "Pizza Ekstravaganza",
+			"types": [0, 1],
+			"sizes": [26, 30, 40],
+			"price": 12,
+			"category": 5,
+			"rating": 6
+		}
+	]
+}

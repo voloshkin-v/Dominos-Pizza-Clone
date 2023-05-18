@@ -1,0 +1,66 @@
+@import '../../assets/scss/settings/init';
+
+.sort {
+	position: relative;
+	z-index: 12;
+
+	&__label {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		color: $color--dark;
+		flex-wrap: wrap;
+		gap: 8px;
+
+		button {
+			padding: 0;
+			background: transparent;
+			cursor: pointer;
+			color: $color--primary;
+			border-bottom: 1px dashed $color--primary;
+			cursor: pointer;
+		}
+	}
+
+	&__popup {
+		position: absolute;
+		right: 0;
+		margin-top: 15px;
+		background: $static--color--white;
+		box-shadow: $color--shadow;
+		border-radius: 10px;
+		overflow: hidden;
+		padding: 10px 0;
+		color: $static--color--dark;
+		width: 190px;
+
+		@include media('>=lg') {
+			right: 30px;
+		}
+
+		ul {
+			li {
+				button {
+					padding: 12px 20px;
+					cursor: pointer;
+					width: 100%;
+					color: currentColor;
+
+					&.active {
+						background: rgba(254, 95, 30, 0.05);
+					}
+
+					@media (any-hover: hover) {
+						&:hover {
+							background: rgba(254, 95, 30, 0.05);
+						}
+					}
+
+					&.active {
+						color: $color--primary;
+					}
+				}
+			}
+		}
+	}
+}

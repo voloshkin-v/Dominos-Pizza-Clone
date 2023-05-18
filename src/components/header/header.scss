@@ -1,0 +1,43 @@
+@import '../../assets/scss/settings/init';
+
+.header {
+	background-color: $color--white;
+	border-bottom: 1px solid $color--border;
+	padding: 14px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 20;
+
+	&__main {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	&__logo {
+		display: flex;
+
+		div {
+			display: none;
+
+			span {
+				font-weight: 800;
+				margin: 0;
+				color: var(--color--dark);
+
+				@include media('>=md') {
+					font-size: 26px;
+				}
+			}
+
+			@include media('>=md') {
+				display: block;
+				margin-left: 15px;
+			}
+		}
+	}
+}

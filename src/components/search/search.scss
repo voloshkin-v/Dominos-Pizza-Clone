@@ -1,0 +1,15 @@
+@import '../../assets/scss/settings/init';
+
+.search-input {
+	background: $static--color--white;
+	border-radius: 5px;
+	border: 1px solid $color--border;
+	padding: 13px;
+	margin: 40px 0 0 0;
+	width: 100%;
+	color: $static--color--dark;
+
+	@include media('>=lg') {
+		width: 50%;
+	}
+}

@@ -8,8 +8,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 10,
-			"category": 1,
-			"rating": 4
+			"category": 1
 		},
 		{
 			"id": 1,
@@ -19,8 +18,7 @@
 			"types": [0],
 			"sizes": [26, 40],
 			"price": 12,
-			"category": 1,
-			"rating": 6
+			"category": 1
 		},
 		{
 			"id": 2,
@@ -30,8 +28,7 @@
 			"types": [0],
 			"sizes": [26, 40],
 			"price": 14,
-			"category": 1,
-			"rating": 4
+			"category": 1
 		},
 		{
 			"id": 3,
@@ -41,8 +38,7 @@
 			"types": [1],
 			"sizes": [26, 30, 40],
 			"price": 8,
-			"category": 1,
-			"rating": 2
+			"category": 1
 		},
 		{
 			"id": 4,
@@ -52,8 +48,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 20,
-			"category": 1,
-			"rating": 8
+			"category": 1
 		},
 		{
 			"id": 5,
@@ -63,8 +58,7 @@
 			"types": [0],
 			"sizes": [30, 40],
 			"price": 17,
-			"category": 2,
-			"rating": 2
+			"category": 2
 		},
 		{
 			"id": 6,
@@ -74,8 +68,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 11,
-			"category": 2,
-			"rating": 9
+			"category": 2
 		},
 		{
 			"id": 7,
@@ -85,8 +78,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 10,
-			"category": 2,
-			"rating": 10
+			"category": 2
 		},
 		{
 			"id": 8,
@@ -96,8 +88,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 16,
-			"category": 2,
-			"rating": 10
+			"category": 2
 		},
 		{
 			"id": 9,
@@ -106,9 +97,8 @@
 			"title": "Pizza Margarita",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 3,
-			"rating": 7
+			"price": 15,
+			"category": 3
 		},
 		{
 			"id": 10,
@@ -117,9 +107,8 @@
 			"title": "Pizza BBQ",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 3,
-			"rating": 7
+			"price": 9,
+			"category": 3
 		},
 		{
 			"id": 11,
@@ -129,8 +118,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 12,
-			"category": 3,
-			"rating": 7
+			"category": 3
 		},
 		{
 			"id": 12,
@@ -139,9 +127,8 @@
 			"title": "Pizza Toscana",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 4,
-			"rating": 7
+			"price": 15,
+			"category": 4
 		},
 		{
 			"id": 13,
@@ -151,8 +138,7 @@
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
 			"price": 12,
-			"category": 4,
-			"rating": 7
+			"category": 4
 		},
 		{
 			"id": 14,
@@ -161,9 +147,8 @@
 			"title": "Pizza BBQ Delux",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 5,
-			"rating": 10
+			"price": 20,
+			"category": 5
 		},
 		{
 			"id": 15,
@@ -172,9 +157,8 @@
 			"title": "Pizza Munich Delux",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 5,
-			"rating": 9
+			"price": 16,
+			"category": 5
 		},
 		{
 			"id": 16,
@@ -183,9 +167,8 @@
 			"title": "Pizza Ekstravaganza",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": 12,
-			"category": 5,
-			"rating": 6
+			"price": 18,
+			"category": 5
 		}
 	]
 }

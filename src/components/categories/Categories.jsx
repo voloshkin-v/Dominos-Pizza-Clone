@@ -5,9 +5,7 @@ import '@splidejs/react-splide/css';
 
 import './categories.scss';
 
-const Categories = () => {
-	const [activeIndex, setActiveIndex] = useState(0);
-
+const Categories = ({ value, onChangeCategory }) => {
 	const categories = [
 		'All',
 		'New',
@@ -30,8 +28,8 @@ const Categories = () => {
 				{categories.map((categoryName, i) => (
 					<SplideSlide key={i}>
 						<button
-							className={activeIndex === i ? 'active' : ''}
-							onClick={() => setActiveIndex(i)}
+							className={value === i ? 'active' : ''}
+							onClick={() => onChangeCategory(i)}
 						>
 							{categoryName}
 						</button>

@@ -2,19 +2,24 @@ import React, { useState } from 'react';
 
 import './sort.scss';
 
-const Sort = () => {
+const Sort = ({ value, onChangeSort }) => {
 	const [open, setOpen] = useState(false);
-	const [activeIndex, setActiveIndex] = useState(0);
 
 	const list = [
-		'Alphabetically, A - Z',
-		'Alphabetically, Z - A',
-		'Price, low to high',
-		'Price, high to low',
+		{
+			name: 'Price, low to high',
+			slug: 'price',
+			orderBy: 'asc',
+		},
+		{
+			name: 'Price, high to low',
+			slug: 'price',
+			orderBy: 'desc',
+		},
 	];
 
-	const handleClickSort = (i) => {
-		setActiveIndex(i);
+	const handleClickSort = (sortObj) => {
+		onChangeSort(sortObj);
 		setOpen(false);
 	};
 
@@ -35,22 +40,24 @@ const Sort = () => {
 				</svg>
 				<b>Sort By:</b>
 				<button onClick={() => setOpen(!open)}>
-					{list[activeIndex]}
+					{Object.keys(value).length === 0 ? 'Default' : value.name}
 				</button>
 			</div>
 
 			{open && (
 				<div className="sort__popup">
 					<ul>
-						{list.map((item, i) => (
+						{list.map((sortItem, i) => (
 							<li key={i}>
 								<button
 									className={
-										activeIndex === i ? 'active' : ''
+										sortItem.name === value.name
+											? 'active'
+											: ''
 									}
-									onClick={() => handleClickSort(i)}
+									onClick={() => handleClickSort(sortItem)}
 								>
-									{item}
+									{sortItem.name}
 								</button>
 							</li>
 						))}

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './pizzaBlock.scss';
 
 const PizzaBlock = ({ title, price, imageUrl, sizes, types, imageAlt }) => {
-	console.log(imageUrl);
 	const [activeType, setActiveType] = useState(types[0]);
 	const [activeSize, setActiveSize] = useState(0);
 
@@ -12,7 +11,7 @@ const PizzaBlock = ({ title, price, imageUrl, sizes, types, imageAlt }) => {
 	return (
 		<li className="pizza-block">
 			<div className="pizza-block__image">
-				<img src={imageUrl} alt={imageAlt} />
+				{imageUrl && <img src={imageUrl} alt={imageAlt} />}
 			</div>
 
 			<h3 className="pizza-block__title">{title}</h3>

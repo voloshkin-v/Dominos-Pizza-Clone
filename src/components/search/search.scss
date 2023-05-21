@@ -1,15 +1,26 @@
 @import '../../assets/scss/settings/init';
 
-.search-input {
-	background: $static--color--white;
-	border-radius: 5px;
-	border: 1px solid $color--border;
-	padding: 13px;
-	margin: 40px 0 0 0;
-	width: 100%;
-	color: $static--color--dark;
+.search-field {
+	position: relative;
 
-	@include media('>=lg') {
-		width: 50%;
+	&__input {
+		background: $static--color--white;
+		border-radius: 5px;
+		border: 1px solid rgb(20, 30, 27, 0.1);
+		padding: 13px 50px 13px 13px;
+
+		width: 100%;
+		color: $static--color--dark;
+		width: 100%;
+	}
+
+	&__button {
+		padding: 0;
+		position: absolute;
+		top: 50%;
+		right: 13px;
+		transform: translateY(-50%);
+		cursor: pointer;
+		display: flex;
 	}
 }

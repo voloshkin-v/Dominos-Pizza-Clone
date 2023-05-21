@@ -5,7 +5,9 @@ import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 const NotFound = () => {
 	return (
 		<>
-			<NotFoundBlock />
+			<NotFoundBlock>
+				<p>This page doesn't exist.</p>
+			</NotFoundBlock>
 		</>
 	);
 };

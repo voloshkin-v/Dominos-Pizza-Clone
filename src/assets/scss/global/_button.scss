@@ -111,6 +111,12 @@
 			}
 		}
 	}
+
+	&--filters {
+		background: transparent;
+		color: $color--dark;
+		padding: 0;
+	}
 }
 
 button {

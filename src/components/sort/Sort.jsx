@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './sort.scss';
 
 const Sort = ({ value, onChangeSort }) => {
 	const [open, setOpen] = useState(false);
+
+	const popupRef = useRef(null);
 
 	const list = [
 		{
@@ -24,7 +26,7 @@ const Sort = ({ value, onChangeSort }) => {
 	};
 
 	return (
-		<div className="sort">
+		<div className="sort" ref={popupRef}>
 			<div className="sort__label">
 				<svg
 					width="10"

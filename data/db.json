@@ -12,7 +12,7 @@
 		},
 		{
 			"id": 1,
-			"imageUrl": "images/chorizo-pizzapieces.webp",
+			"imageUrl": "images/chorizo.webp",
 			"imageAlt": "Pizza Chorizo",
 			"title": "Pizza Chorizo",
 			"types": [0],
@@ -22,7 +22,7 @@
 		},
 		{
 			"id": 2,
-			"imageUrl": "images/beef-pizzapieces.webp",
+			"imageUrl": "images/pizza-with-veal.webp",
 			"imageAlt": "Pizza with veal",
 			"title": "Pizza With Veal",
 			"types": [0],
@@ -32,7 +32,7 @@
 		},
 		{
 			"id": 3,
-			"imageUrl": "images/turkey-pizzapieces.webp",
+			"imageUrl": "images/pizza-with-turkey.webp",
 			"imageAlt": "Pizza with turkey",
 			"title": "Pizza With Turkey",
 			"types": [1],

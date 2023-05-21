@@ -1,24 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import './sort.scss';
+
+const list = [
+	{
+		name: 'Price, low to high',
+		slug: 'price',
+		orderBy: 'asc',
+	},
+	{
+		name: 'Price, high to low',
+		slug: 'price',
+		orderBy: 'desc',
+	},
+];
 
 const Sort = ({ value, onChangeSort }) => {
 	const [open, setOpen] = useState(false);
 
 	const popupRef = useRef(null);
-
-	const list = [
-		{
-			name: 'Price, low to high',
-			slug: 'price',
-			orderBy: 'asc',
-		},
-		{
-			name: 'Price, high to low',
-			slug: 'price',
-			orderBy: 'desc',
-		},
-	];
 
 	const handleClickSort = (sortObj) => {
 		onChangeSort(sortObj);

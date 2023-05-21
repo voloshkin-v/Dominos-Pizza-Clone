@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 import './categories.scss';
 
-const Categories = ({ value, onChangeCategory }) => {
-	const categories = [
-		'All',
-		'New',
-		'Best price',
-		'Heroes',
-		'Wonder',
-		'Finest',
-	];
+const categories = ['All', 'New', 'Best price', 'Heroes', 'Wonder', 'Finest'];
 
+const Categories = ({ value, onChangeCategory }) => {
 	return (
 		<div className="categories">
 			<Splide

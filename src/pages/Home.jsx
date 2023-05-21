@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId, setSort } from '../redux/slices/filterSlice';
+
 import { SearchContext } from '../context/SearchContext';
 
 import Categories from '../components/categories/Categories';
@@ -11,21 +14,21 @@ import Error from '../components/error/Error';
 import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 
 const Home = () => {
+	const dispatch = useDispatch();
+
+	const categoryId = useSelector((state) => state.filter.categoryId);
+	const sortType = useSelector((state) => state.filter.sort);
+
 	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
-
-	const [categoryIndex, setCategoryIndex] = useState(0);
-	const [sortType, setSortType] = useState({});
+	const [isNothingFound, setIsNothingFound] = useState(false);
 
 	const [searchQuery, setSearchQuery] = useState('');
 
 	useEffect(() => {
 		const query = searchQuery ? `q=${searchQuery}` : '';
-
-		const category =
-			categoryIndex === 0 ? '' : `&category=${categoryIndex}`;
-
+		const category = categoryId === 0 ? '' : `&category=${categoryId}`;
 		const sort =
 			Object.keys(sortType).length === 0
 				? ''
@@ -42,6 +45,10 @@ const Home = () => {
 				return response.json();
 			})
 			.then((data) => {
+				data.length === 0
+					? setIsNothingFound(true)
+					: setIsNothingFound(false);
+
 				setItems(data);
 				setIsLoading(false);
 			})
@@ -49,7 +56,7 @@ const Home = () => {
 				setIsError(true);
 				setIsLoading(false);
 			});
-	}, [categoryIndex, sortType, searchQuery]);
+	}, [categoryId, sortType, searchQuery]);
 
 	const renderItems = (arr) => {
 		if (isLoading) {
@@ -64,20 +71,20 @@ const Home = () => {
 	};
 
 	const listItems = renderItems(items);
-	const error = isError ? <Error /> : null;
-	const notFound = items.length === 0 && !isError ? <NotFoundBlock /> : null;
+	const error = isError && !isLoading ? <Error /> : null;
+	const notFound = isNothingFound ? <NotFoundBlock /> : null;
 	const loader = isLoading ? <Loader /> : null;
 
 	return (
 		<SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
 			<div className="content__top">
 				<Categories
-					value={categoryIndex}
-					onChangeCategory={(i) => setCategoryIndex(i)}
+					value={categoryId}
+					onChangeCategory={(id) => dispatch(setCategoryId(id))}
 				/>
 				<Sort
 					value={sortType}
-					onChangeSort={(sortType) => setSortType(sortType)}
+					onChangeSort={(sortType) => dispatch(setSort(sortType))}
 				/>
 			</div>
 

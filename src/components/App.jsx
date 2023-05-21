@@ -4,14 +4,11 @@ import {
 	createBrowserRouter,
 	RouterProvider,
 	createRoutesFromElements,
-	Routes,
 	Route,
-	Outlet,
 } from 'react-router-dom';
 
 import Header from './header/Header';
 import DarkMode from './darkMode/DarkMode';
-
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import Cart from '../pages/Cart';

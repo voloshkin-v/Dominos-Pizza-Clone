@@ -22,7 +22,6 @@ const Home = () => {
 	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
-	const [isNothingFound, setIsNothingFound] = useState(false);
 
 	const [searchQuery, setSearchQuery] = useState('');
 
@@ -45,10 +44,6 @@ const Home = () => {
 				return response.json();
 			})
 			.then((data) => {
-				data.length === 0
-					? setIsNothingFound(true)
-					: setIsNothingFound(false);
-
 				setItems(data);
 				setIsLoading(false);
 			})
@@ -71,8 +66,9 @@ const Home = () => {
 	};
 
 	const listItems = renderItems(items);
-	const error = isError && !isLoading ? <Error /> : null;
-	const notFound = isNothingFound ? <NotFoundBlock /> : null;
+	const error = isError ? <Error /> : null;
+	const notFound =
+		!isError && !isLoading && items.length === 0 ? <NotFoundBlock /> : null;
 	const loader = isLoading ? <Loader /> : null;
 
 	return (

@@ -29,6 +29,7 @@ const Home = () => {
 	useEffect(() => {
 		const query = searchQuery ? `q=${searchQuery}` : '';
 		const category = categoryId === 0 ? '' : `&category=${categoryId}`;
+
 		const sort =
 			Object.keys(sortType).length === 0
 				? ''
@@ -98,20 +99,6 @@ const Home = () => {
 			{skeleton}
 			{error}
 			{notFound}
-
-			{/* <div style={{ marginBottom: 50 }}>
-					<CardSkeletons />
-				</div>
-
-				<ul className="content__items">
-					<PizzaBlock
-						title="oreiceat temporibus eligendi!"
-						price={122}
-						imageUrl=""
-						sizes={[20]}
-						types={[1, 2]}
-					/>
-				</ul> */}
 		</SearchContext.Provider>
 	);
 };

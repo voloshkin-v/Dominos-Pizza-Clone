@@ -11,7 +11,10 @@ export const cart = createSlice({
 	reducers: {
 		addItem: (state, action) => {
 			const findItem = state.items.find(
-				(obj) => obj.id === action.payload.id
+				({ id, price, type }) =>
+					id === action.payload.id &&
+					price === action.payload.price &&
+					type === action.payload.type
 			);
 
 			if (findItem) {

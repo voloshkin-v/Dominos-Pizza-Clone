@@ -11,11 +11,13 @@ const typeNames = ['Thick crust', 'Thin'];
 const PizzaBlock = ({ id, title, price, imageUrl, sizes, types, imageAlt }) => {
 	const dispatch = useDispatch();
 
-	const cartItem = useSelector((state) => state.cart.items).find(
+	const reletedItems = useSelector((state) => state.cart.items).filter(
 		(obj) => obj.id === id
 	);
 
-	const addedCount = cartItem ? cartItem.count : 0;
+	const itemCount = reletedItems.reduce((total, current) => {
+		return total + current.count;
+	}, 0);
 
 	const [activeType, setActiveType] = useState(types[0]);
 	const [activeSize, setActiveSize] = useState(0);
@@ -24,9 +26,9 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types, imageAlt }) => {
 		const item = {
 			id,
 			title,
-			price,
 			imageUrl,
 			imageAlt,
+			price: price[activeSize],
 			type: typeNames[activeType],
 			size: sizes[activeSize],
 		};
@@ -71,13 +73,15 @@ const PizzaBlock = ({ id, title, price, imageUrl, sizes, types, imageAlt }) => {
 			</div>
 
 			<div className="pizza-block__bottom">
-				<div className="pizza-block__price">From {price} $</div>
+				<div className="pizza-block__price">
+					Price: {price[activeSize]} $
+				</div>
 				<button
 					className="button button--outline button--add"
 					onClick={onClickAdd}
 				>
 					<span>Add</span>
-					<i>{addedCount}</i>
+					<i>{itemCount}</i>
 				</button>
 			</div>
 		</li>

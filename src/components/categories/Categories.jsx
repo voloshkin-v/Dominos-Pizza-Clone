@@ -7,7 +7,7 @@ import './categories.scss';
 
 const categories = ['All', 'New', 'Best price', 'Heroes', 'Wonder', 'Finest'];
 
-const Categories = ({ value, onChangeCategory }) => {
+const Categories = ({ isLoading, value, onChangeCategory }) => {
 	return (
 		<div className="categories">
 			<Splide
@@ -21,6 +21,7 @@ const Categories = ({ value, onChangeCategory }) => {
 				{categories.map((categoryName, i) => (
 					<SplideSlide key={i}>
 						<button
+							disabled={isLoading}
 							className={value === i ? 'active' : ''}
 							onClick={() => onChangeCategory(i)}
 						>

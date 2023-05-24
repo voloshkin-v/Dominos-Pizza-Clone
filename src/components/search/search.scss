@@ -3,6 +3,10 @@
 .search-field {
 	position: relative;
 
+	&.loading {
+		pointer-events: none;
+	}
+
 	&__input {
 		background: $static--color--white;
 		border-radius: 5px;

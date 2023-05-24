@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 
+import { useOusideClick } from '../../hooks/onOutsideClick';
+
 import './sort.scss';
 
 const list = [
@@ -15,10 +17,11 @@ const list = [
 	},
 ];
 
-const Sort = ({ value, onChangeSort }) => {
+const Sort = ({ isLoading, value, onChangeSort }) => {
 	const [open, setOpen] = useState(false);
-
 	const popupRef = useRef(null);
+
+	useOusideClick(popupRef, () => setOpen(false), open);
 
 	const handleClickSort = (sortObj) => {
 		onChangeSort(sortObj);
@@ -41,7 +44,7 @@ const Sort = ({ value, onChangeSort }) => {
 					/>
 				</svg>
 				<b>Sort By:</b>
-				<button onClick={() => setOpen(!open)}>
+				<button disabled={isLoading} onClick={() => setOpen(!open)}>
 					{Object.keys(value).length === 0 ? 'Default' : value.name}
 				</button>
 			</div>

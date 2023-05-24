@@ -1,12 +1,38 @@
 import { useState } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addItem } from '../../redux/slices/cartSlice';
+
 import './pizzaBlock.scss';
 
-const PizzaBlock = ({ title, price, imageUrl, sizes, types, imageAlt }) => {
+const typeNames = ['Thick crust', 'Thin'];
+
+const PizzaBlock = ({ id, title, price, imageUrl, sizes, types, imageAlt }) => {
+	const dispatch = useDispatch();
+
+	const cartItem = useSelector((state) => state.cart.items).find(
+		(obj) => obj.id === id
+	);
+
+	const addedCount = cartItem ? cartItem.count : 0;
+
 	const [activeType, setActiveType] = useState(types[0]);
 	const [activeSize, setActiveSize] = useState(0);
 
-	const typeNames = ['Thick crust', 'Thin'];
+	const onClickAdd = () => {
+		const item = {
+			id,
+			title,
+			price,
+			imageUrl,
+			imageAlt,
+			type: typeNames[activeType],
+			size: sizes[activeSize],
+		};
+
+		dispatch(addItem(item));
+	};
 
 	return (
 		<li className="pizza-block">
@@ -46,9 +72,12 @@ const PizzaBlock = ({ title, price, imageUrl, sizes, types, imageAlt }) => {
 
 			<div className="pizza-block__bottom">
 				<div className="pizza-block__price">From {price} $</div>
-				<button className="button button--outline button--add">
+				<button
+					className="button button--outline button--add"
+					onClick={onClickAdd}
+				>
 					<span>Add</span>
-					<i>0</i>
+					<i>{addedCount}</i>
 				</button>
 			</div>
 		</li>

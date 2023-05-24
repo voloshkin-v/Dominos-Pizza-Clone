@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, setSort } from '../redux/slices/filterSlice';
@@ -8,10 +8,10 @@ import { SearchContext } from '../context/SearchContext';
 import Categories from '../components/categories/Categories';
 import Sort from '../components/sort/Sort';
 import PizzaBlock from '../components/pizzaBlock/PizzaBlock';
-import Loader from '../components/loader/Loader';
-import Filters from '../components/filters/Filters';
 import Error from '../components/error/Error';
+import CardSkeletons from '../components/cardSkeletons/CardSkeletons';
 import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
+import Filters from '../components/filters/Filters';
 
 const Home = () => {
 	const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const Home = () => {
 	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
+	const isFirstMount = useRef(true);
 
 	const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,6 +35,7 @@ const Home = () => {
 				: `&_sort=${sortType.slug}&_order=${sortType.orderBy}`;
 
 		setIsLoading(true);
+		isFirstMount.current = false;
 
 		fetch(`http://localhost:3001/pizzas?${query}${category}${sort}`)
 			.then((response) => {
@@ -54,9 +56,7 @@ const Home = () => {
 	}, [categoryId, sortType, searchQuery]);
 
 	const renderItems = (arr) => {
-		if (isLoading) {
-			return;
-		}
+		if (isError || arr.length === 0) return;
 
 		const pizzaItems = arr.map((item) => (
 			<PizzaBlock key={item.id} {...item} />
@@ -67,18 +67,24 @@ const Home = () => {
 
 	const listItems = renderItems(items);
 	const error = isError ? <Error /> : null;
+	const skeleton = isFirstMount.current ? (
+		<CardSkeletons itemsCount={16} />
+	) : null;
 	const notFound =
 		!isError && !isLoading && items.length === 0 ? <NotFoundBlock /> : null;
-	const loader = isLoading ? <Loader /> : null;
 
 	return (
-		<SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
+		<SearchContext.Provider
+			value={{ searchQuery, setSearchQuery, isLoading }}
+		>
 			<div className="content__top">
 				<Categories
+					isLoading={isLoading}
 					value={categoryId}
 					onChangeCategory={(id) => dispatch(setCategoryId(id))}
 				/>
 				<Sort
+					isLoading={isLoading}
 					value={sortType}
 					onChangeSort={(sortType) => dispatch(setSort(sortType))}
 				/>
@@ -89,9 +95,23 @@ const Home = () => {
 			<h2 className="content__title">All the Pizzas</h2>
 
 			{listItems}
-			{loader}
+			{skeleton}
 			{error}
 			{notFound}
+
+			{/* <div style={{ marginBottom: 50 }}>
+					<CardSkeletons />
+				</div>
+
+				<ul className="content__items">
+					<PizzaBlock
+						title="oreiceat temporibus eligendi!"
+						price={122}
+						imageUrl=""
+						sizes={[20]}
+						types={[1, 2]}
+					/>
+				</ul> */}
 		</SearchContext.Provider>
 	);
 };

@@ -1,14 +1,21 @@
-// useEffect(() => {
+import { useEffect } from 'react';
 
-// 	const handler = (e) => {
-// 		if (!popupRef.current.contains(e.target)) {
-// 			setOpen(false);
-// 		}
-// 	};
+export function useOusideClick(elementRef, handler, attached = true) {
+	useEffect(() => {
+		if (!attached) return;
 
-// 	document.addEventListener('mousedown', handler);
+		const handleClickOutside = (e) => {
+			if (!elementRef.current) return;
 
-// 	return () => {
-// 		document.removeEventListener('mousedown', handler);
-// 	};
-// }, []);
+			if (!elementRef.current.contains(e.target)) {
+				handler(false);
+			}
+		};
+
+		window.addEventListener('click', handleClickOutside);
+
+		return () => {
+			window.removeEventListener('click', handleClickOutside);
+		};
+	}, [elementRef, handler, attached]);
+}

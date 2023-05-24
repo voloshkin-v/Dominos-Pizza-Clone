@@ -3,36 +3,10 @@
 .filters {
 	margin-top: 20px;
 	position: relative;
+	width: 100%;
+	z-index: 5;
 
 	@include media('>=lg') {
 		margin-top: 40px;
-	}
-
-	& > button {
-		display: flex;
-		align-items: center;
-
-		svg {
-			margin-left: 5px;
-		}
-	}
-
-	h3 {
-		margin-bottom: 10px;
-	}
-
-	&-main {
-		padding: 20px;
-		position: absolute;
-		top: calc(100% + 20px);
-		width: 100%;
-		z-index: 5;
-		background: $static--color--white;
-		box-shadow: $color--shadow;
-		border-radius: 10px;
-
-		@include media('>=lg') {
-			width: 50%;
-		}
 	}
 }

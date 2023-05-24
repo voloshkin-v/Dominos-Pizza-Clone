@@ -40,43 +40,4 @@
 			}
 		}
 	}
-	// 	ul {
-	// 		display: flex;
-	// 		flex-wrap: wrap;
-	// 		gap: 10px;
-	// 		color: $static--color--dark;
-
-	// 		li {
-	// 			&.active {
-	// 				button {
-	// 					background-color: $static--color--dark;
-	// 					color: $static--color--white;
-	// 				}
-	// 			}
-
-	// 			button {
-	// 				background-color: $static--color--gray;
-	// 				padding: 13px 30px;
-	// 				border-radius: 30px;
-	// 				font-weight: bold;
-	// 				cursor: pointer;
-	// 				transition: background-color $transition, color $transition;
-
-	// 				@media (any-hover: hover) {
-	// 					&:hover {
-	// 						background-color: $static--color--dark;
-	// 						color: $static--color--white;
-	// 					}
-	// 				}
-	// 			}
-
-	// 			// &:hover {
-	// 			// 	background-color: darken(#f9f9f9, 2%);
-	// 			// }
-
-	// 			// &:active {
-	// 			// 	background-color: darken(#f9f9f9, 5%);
-	// 			// }
-	// 		}
-	// 	}
 }

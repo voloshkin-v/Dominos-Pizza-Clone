@@ -1,4 +1,10 @@
-import React, { useContext, useRef, useCallback, useState, useEffect } from 'react';
+import React, {
+	useContext,
+	useRef,
+	useCallback,
+	useState,
+	useEffect,
+} from 'react';
 import debounce from 'lodash.debounce';
 
 import { SearchContext } from '../../context/SearchContext';
@@ -7,20 +13,15 @@ import './search.scss';
 
 const Search = () => {
 	const [value, setValue] = useState('');
-	const { setSearchQuery } = useContext(SearchContext);
+	const { setSearchQuery, isLoading } = useContext(SearchContext);
 	const inputRef = useRef(null);
-
-	useEffect(() => {
-		return () => {
-			setSearchQuery('');
-		}
-	}, []);
 
 	const handleClickClear = () => {
 		setValue('');
 		setSearchQuery('');
 
 		inputRef.current.focus();
+		updateSearchContext.cancel();
 	};
 
 	const updateSearchContext = useCallback(
@@ -38,7 +39,7 @@ const Search = () => {
 	};
 
 	return (
-		<div className="search-field">
+		<div className={`search-field ${isLoading ? 'loading' : ''}`}>
 			<input
 				value={value}
 				onChange={onChangeInput}

@@ -11,9 +11,9 @@ export const cart = createSlice({
 	reducers: {
 		addItem: (state, action) => {
 			const findItem = state.items.find(
-				({ id, price, type }) =>
+				({ id, size, type }) =>
 					id === action.payload.id &&
-					price === action.payload.price &&
+					size === action.payload.size &&
 					type === action.payload.type
 			);
 
@@ -26,21 +26,59 @@ export const cart = createSlice({
 				});
 			}
 
-			state.totalPrice = state.items.reduce((sum, obj) => {
-				return sum + obj.price * obj.count;
-			}, 0);
+			state.totalPrice = state.items.reduce(
+				(accumulator, currentValue) => {
+					return (
+						accumulator + currentValue.price * currentValue.count
+					);
+				},
+				0
+			);
+		},
+		decrementItem: (state, action) => {
+			const findItem = state.items.find(
+				({ id, size, type }) =>
+					id === action.payload.id &&
+					size === action.payload.size &&
+					type === action.payload.type
+			);
+
+			findItem.count--;
+
+			state.totalPrice = state.items.reduce(
+				(accumulator, currentValue) => {
+					return (
+						accumulator + currentValue.price * currentValue.count
+					);
+				},
+				0
+			);
 		},
 		removeItem: (state, action) => {
-			state.items.filter((obj) => obj.id !== action.payload);
+			state.items = state.items.filter(
+				({ id, size, type }) =>
+					id !== action.payload.id ||
+					size !== action.payload.size ||
+					type !== action.payload.type
+			);
+
+			state.totalPrice = state.items.reduce(
+				(accumulator, currentValue) => {
+					return (
+						accumulator + currentValue.price * currentValue.count
+					);
+				},
+				0
+			);
 		},
 		clearItems: (state) => {
 			state.items = [];
+			state.totalPrice = 0;
 		},
 	},
 });
 
-console.log(cart);
-
-export const { addItem, removeItem, clearItems } = cart.actions;
+export const { addItem, removeItem, clearItems, incrementItem, decrementItem } =
+	cart.actions;
 
 export default cart.reducer;

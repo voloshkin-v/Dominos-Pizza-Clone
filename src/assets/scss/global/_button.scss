@@ -117,6 +117,24 @@
 		color: $color--dark;
 		padding: 0;
 	}
+
+	&--clear {
+		border-radius: 0;
+		background: transparent;
+		padding: 0;
+		min-width: fit-content;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		padding: 0;
+		color: $color--dark-light;
+		line-height: 1;
+		font-weight: 700;
+
+		svg {
+			margin-right: 6px;
+		}
+	}
 }
 
 button {

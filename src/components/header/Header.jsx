@@ -11,8 +11,8 @@ import logo from '../../assets/icons/pizza-logo.svg';
 const Header = () => {
 	const { items, totalPrice } = useSelector((state) => state.cart);
 
-	const totalCount = [...items].reduce((total, current) => {
-		return total + current.count;
+	const totalCount = [...items].reduce((accumulator, currentItem) => {
+		return accumulator + currentItem.count;
 	}, 0);
 
 	return (

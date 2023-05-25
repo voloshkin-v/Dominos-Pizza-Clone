@@ -1,0 +1,128 @@
+@import '../../assets/scss/settings/init';
+
+.cart-item {
+	display: flex;
+	width: 100%;
+	border-top: 1px solid $color--border;
+	padding-top: 30px;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+	gap: 20px 0;
+	position: relative;
+	color: $color--dark;
+
+	@include media('>=md') {
+		flex-wrap: nowrap;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex: 0 1 100%;
+		padding-right: 42px;
+
+		@include media('>=md') {
+			padding-right: 0;
+			flex: 0 1 25%;
+		}
+	}
+
+	&__img {
+		display: flex;
+		align-items: center;
+		margin-right: 15px;
+
+		img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h3 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 16px;
+		}
+	}
+
+	&__count {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		flex: 0 1 50%;
+
+		@include media('>=md') {
+			flex: 0 1 25%;
+			justify-content: flex-end;
+		}
+
+		&-minus {
+			svg {
+				path:first-of-type {
+					display: none;
+				}
+			}
+		}
+
+		span {
+			font-size: 20px;
+			font-weight: 700;
+		}
+	}
+
+	&__price {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex: 0 1 50%;
+		text-align: center;
+
+		@include media('>=md') {
+			flex: 0 1 25%;
+		}
+
+		span {
+			font-size: 20px;
+			font-weight: 700;
+		}
+	}
+
+	&__remove {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		position: absolute;
+		top: 30px;
+		right: 0;
+
+		@include media('>=md') {
+			flex: 0 1 25%;
+			position: relative;
+			top: auto;
+		}
+
+		svg {
+			transform: rotate(45deg);
+		}
+
+		.button {
+			svg {
+				width: 11.5px;
+				height: 11.5px;
+				position: relative;
+			}
+		}
+	}
+}

@@ -3,6 +3,8 @@
 .sort {
 	position: relative;
 	z-index: 12;
+	width: fit-content;
+	margin-left: auto;
 
 	&__label {
 		display: flex;

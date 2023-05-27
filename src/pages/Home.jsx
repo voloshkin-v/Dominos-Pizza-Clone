@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, setSort } from '../redux/slices/filterSlice';
+import { setItems } from '../redux/slices/productsSlice';
 
 import { SearchContext } from '../context/SearchContext';
 
@@ -16,10 +17,10 @@ import Filters from '../components/filters/Filters';
 const Home = () => {
 	const dispatch = useDispatch();
 
-	const categoryId = useSelector((state) => state.filter.categoryId);
 	const sortType = useSelector((state) => state.filter.sort);
+	const { categoryId } = useSelector((state) => state.filter);
+	const { items } = useSelector((state) => state.productsSlice);
 
-	const [items, setItems] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 	const isFirstMount = useRef(true);
@@ -47,11 +48,12 @@ const Home = () => {
 				return response.json();
 			})
 			.then((data) => {
-				setItems(data);
-				setIsLoading(false);
+				dispatch(setItems(data));
 			})
 			.catch((err) => {
 				setIsError(true);
+			})
+			.finally(() => {
 				setIsLoading(false);
 			});
 	}, [categoryId, sortType, searchQuery]);

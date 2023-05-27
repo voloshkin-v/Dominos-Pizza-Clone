@@ -10,12 +10,11 @@ import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 const Cart = () => {
 	const dispatch = useDispatch();
 
-	const { items, totalPrice } = useSelector((state) => state.cart);
-	const totalCount = items.reduce((accumulator, currentItem) => {
-		return accumulator + currentItem.count;
-	}, 0);
+	const { items, totalPrice, totalAmount } = useSelector(
+		(state) => state.cart
+	);
 
-	if (!totalCount) {
+	if (!totalAmount) {
 		return <NotFoundBlock>Cart is empty.</NotFoundBlock>;
 	}
 
@@ -108,7 +107,7 @@ const Cart = () => {
 			<div className="cart__bottom">
 				<div className="cart__bottom-details">
 					<div>
-						Total amount of pizzas: <span>{totalCount}</span>
+						Total amount of pizzas: <span>{totalAmount}</span>
 					</div>
 					<div>
 						Total: <b>{totalPrice}$</b>

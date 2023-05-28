@@ -34,8 +34,6 @@ export const productsSlice = createSlice({
 			state.items = [];
 		},
 		[fetchData.fulfilled]: (state, action) => {
-			console.log(action.payload);
-
 			state.status = 'success';
 			state.items = action.payload;
 		},

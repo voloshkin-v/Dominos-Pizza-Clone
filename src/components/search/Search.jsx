@@ -1,32 +1,30 @@
-import React, {
-	useContext,
-	useRef,
-	useCallback,
-	useState,
-	useEffect,
-} from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import debounce from 'lodash.debounce';
 
-import { SearchContext } from '../../context/SearchContext';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { filterSelector, setSearchValue } from '../../redux/slices/filterSlice';
 
 import './search.scss';
 
 const Search = () => {
+	const dispatch = useDispatch();
+	const { status } = useSelector(filterSelector);
+
 	const [value, setValue] = useState('');
-	const { setSearchQuery, isLoading } = useContext(SearchContext);
 	const inputRef = useRef(null);
 
 	const handleClickClear = () => {
 		setValue('');
-		setSearchQuery('');
+		dispatch(setSearchValue(''));
 
 		inputRef.current.focus();
-		updateSearchContext.cancel();
+		updateSearchValue.cancel();
 	};
 
-	const updateSearchContext = useCallback(
+	const updateSearchValue = useCallback(
 		debounce((str) => {
-			setSearchQuery(str);
+			dispatch(setSearchValue(str));
 		}, 500),
 		[]
 	);
@@ -35,11 +33,13 @@ const Search = () => {
 		const target = e.target.value;
 
 		setValue(target);
-		updateSearchContext(target);
+		updateSearchValue(target);
 	};
 
 	return (
-		<div className={`search-field ${isLoading ? 'loading' : ''}`}>
+		<div
+			className={`search-field ${status === 'loading' ? 'loading' : ''}`}
+		>
 			<input
 				value={value}
 				onChange={onChangeInput}

@@ -72,14 +72,18 @@ export const cart = createSlice({
 					type !== action.payload.type
 			);
 
+			state.totalAmount = calculateTotalAmount(state.items);
 			state.totalPrice = calculateTotalPrice(state.items);
 		},
 		clearItems: (state) => {
 			state.items = [];
 			state.totalPrice = 0;
+			state.totalAmount = 0;
 		},
 	},
 });
+
+export const cartSelector = (state) => state.cart;
 
 export const { addItem, removeItem, clearItems, incrementItem, decrementItem } =
 	cart.actions;

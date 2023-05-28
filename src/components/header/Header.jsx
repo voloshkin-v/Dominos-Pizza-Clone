@@ -1,15 +1,16 @@
 import React from 'react';
 
 import { Link, Outlet } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
+
+import { cartSelector } from '../../redux/slices/cartSlice';
 
 import './header.scss';
 
 import logo from '../../assets/icons/pizza-logo.svg';
 
 const Header = () => {
-	const { totalPrice, totalAmount } = useSelector((state) => state.cart);
+	const { totalPrice, totalAmount } = useSelector(cartSelector);
 
 	return (
 		<>

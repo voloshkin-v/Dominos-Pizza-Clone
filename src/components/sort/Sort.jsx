@@ -1,5 +1,8 @@
 import React, { useRef, useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import { productsSelector } from '../../redux/slices/productsSlice';
+
 import { useOusideClick } from '../../hooks/onOutsideClick';
 
 import './sort.scss';
@@ -17,7 +20,8 @@ const list = [
 	},
 ];
 
-const Sort = ({ isLoading, value, onChangeSort }) => {
+const Sort = ({ value, onChangeSort }) => {
+	const { status } = useSelector(productsSelector);
 	const [open, setOpen] = useState(false);
 	const popupRef = useRef(null);
 
@@ -44,7 +48,10 @@ const Sort = ({ isLoading, value, onChangeSort }) => {
 					/>
 				</svg>
 				<b>Sort By:</b>
-				<button disabled={isLoading} onClick={() => setOpen(!open)}>
+				<button
+					disabled={status === 'loading'}
+					onClick={() => setOpen(!open)}
+				>
 					{Object.keys(value).length === 0 ? 'Default' : value.name}
 				</button>
 			</div>

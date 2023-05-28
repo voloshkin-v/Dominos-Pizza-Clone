@@ -7,7 +7,7 @@
 			"title": "Pizza Diablo",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [7, 9, 11],
 			"category": 1
 		},
 		{
@@ -17,7 +17,7 @@
 			"title": "Pizza Chorizo",
 			"types": [0],
 			"sizes": [26, 40],
-			"price": [10, 12, 14],
+			"price": [6, 8, 10],
 			"category": 1
 		},
 		{
@@ -27,7 +27,7 @@
 			"title": "Pizza With Veal",
 			"types": [0],
 			"sizes": [26, 40],
-			"price": [10, 12, 16],
+			"price": [6, 8, 11],
 			"category": 1
 		},
 		{
@@ -37,7 +37,7 @@
 			"title": "Pizza With Turkey",
 			"types": [1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [8, 10, 12],
 			"category": 1
 		},
 		{
@@ -47,7 +47,7 @@
 			"title": "Pizza Beef & Chips",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [10, 12, 18],
 			"category": 1
 		},
 		{
@@ -57,7 +57,7 @@
 			"title": "Pizza Texas",
 			"types": [0],
 			"sizes": [30, 40],
-			"price": [10, 12, 16],
+			"price": [5, 7, 9],
 			"category": 2
 		},
 		{
@@ -67,7 +67,7 @@
 			"title": "Pizza Pepperoni with tomatoes",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [9, 12, 19],
 			"category": 2
 		},
 		{
@@ -87,7 +87,7 @@
 			"title": "Pizza Ham & mushrooms",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [11, 13, 17],
 			"category": 2
 		},
 		{
@@ -97,7 +97,7 @@
 			"title": "Pizza Margarita",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [6, 8, 10],
 			"category": 3
 		},
 		{
@@ -107,7 +107,7 @@
 			"title": "Pizza BBQ",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [11, 13, 17],
 			"category": 3
 		},
 		{
@@ -117,7 +117,7 @@
 			"title": "Pizza Carbonara",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [12, 17, 19],
 			"category": 3
 		},
 		{
@@ -147,7 +147,7 @@
 			"title": "Pizza BBQ Delux",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [15, 18, 21],
 			"category": 5
 		},
 		{
@@ -157,7 +157,7 @@
 			"title": "Pizza Munich Delux",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [14, 19, 22],
 			"category": 5
 		},
 		{
@@ -167,7 +167,7 @@
 			"title": "Pizza Ekstravaganza",
 			"types": [0, 1],
 			"sizes": [26, 30, 40],
-			"price": [10, 12, 16],
+			"price": [19, 24, 25],
 			"category": 5
 		}
 	]

@@ -19,7 +19,7 @@ import CardSkeletons from '../components/cardSkeletons/CardSkeletons';
 import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 import Filters from '../components/filters/Filters';
 
-const Home = () => {
+const Home: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const sortType = useSelector(sortSelector);
@@ -30,16 +30,18 @@ const Home = () => {
 	const isFirstMount = useRef(true);
 
 	useEffect(() => {
+		console.log(sortType.name);
 		const query = searchValue ? `q=${searchValue}` : '';
 		const category = categoryId === 0 ? '' : `&category=${categoryId}`;
 		const sort =
-			Object.keys(sortType).length === 0
+			sortType.name === 'Default'
 				? ''
 				: `&_sort=${sortType.slug}&_order=${sortType.orderBy}`;
 
 		isFirstMount.current = false;
 
 		dispatch(
+			// @ts-ignore
 			fetchData({
 				query,
 				category,

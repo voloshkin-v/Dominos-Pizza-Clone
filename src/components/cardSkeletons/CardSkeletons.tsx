@@ -5,7 +5,11 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import './cardSkeleton.scss';
 
-const CardSkeleton = ({ itemsCount }) => {
+type CardSkeletonProps = {
+	itemsCount: number;
+};
+
+const CardSkeleton: React.FC<CardSkeletonProps> = ({ itemsCount }) => {
 	const sleletonsItems = Array(itemsCount)
 		.fill(0)
 		.map((_, i) => (

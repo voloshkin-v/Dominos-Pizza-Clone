@@ -1,13 +1,20 @@
 import React, { useRef, useState } from 'react';
 
 import { useSelector } from 'react-redux';
+
 import { productsSelector } from '../../redux/slices/productsSlice';
+import { SortItem } from '../../redux/slices/filterSlice';
 
 import { useOusideClick } from '../../hooks/onOutsideClick';
 
 import './sort.scss';
 
-const list = [
+type SortProps = {
+	value: SortItem;
+	onChangeSort: (obj: SortItem) => void;
+};
+
+const list: SortItem[] = [
 	{
 		name: 'Price, low to high',
 		slug: 'price',
@@ -20,14 +27,14 @@ const list = [
 	},
 ];
 
-const Sort = ({ value, onChangeSort }) => {
+const Sort: React.FC<SortProps> = ({ value, onChangeSort }) => {
 	const { status } = useSelector(productsSelector);
 	const [open, setOpen] = useState(false);
-	const popupRef = useRef(null);
+	const popupRef = useRef<HTMLDivElement>(null);
 
 	useOusideClick(popupRef, () => setOpen(false), open);
 
-	const handleClickSort = (sortObj) => {
+	const handleClickSort = (sortObj: SortItem) => {
 		onChangeSort(sortObj);
 		setOpen(false);
 	};
@@ -52,7 +59,7 @@ const Sort = ({ value, onChangeSort }) => {
 					disabled={status === 'loading'}
 					onClick={() => setOpen(!open)}
 				>
-					{Object.keys(value).length === 0 ? 'Default' : value.name}
+					{value.name}
 				</button>
 			</div>
 

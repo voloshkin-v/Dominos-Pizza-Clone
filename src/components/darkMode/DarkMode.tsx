@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
-
 import sun from '../../assets/icons/sun.svg';
 import moon from '../../assets/icons/moon.svg';
 
-import { ThemeContext } from '../App';
-
 import './darkMode.scss';
 
-const DarkMode = ({ theme, toggleTheme }) => {
+type DarkModeProps = {
+	theme: string;
+	toggleTheme: () => void;
+};
+
+const DarkMode: React.FC<DarkModeProps> = ({ theme, toggleTheme }) => {
 	return (
 		<div className="dark-mode-trigger">
 			<button

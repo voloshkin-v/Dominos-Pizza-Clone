@@ -8,9 +8,14 @@ import { productsSelector } from '../../redux/slices/productsSlice';
 
 import './categories.scss';
 
+type CategoriesProps = {
+	value: number;
+	onChangeCategory: (i: number) => void;
+};
+
 const categories = ['All', 'New', 'Best price', 'Heroes', 'Wonder', 'Finest'];
 
-const Categories = ({ value, onChangeCategory }) => {
+const Categories: React.FC<CategoriesProps> = ({ value, onChangeCategory }) => {
 	const { status } = useSelector(productsSelector);
 
 	return (

@@ -2,7 +2,11 @@ import React from 'react';
 
 import styles from './notFoundBlock.module.scss';
 
-const NotFoundBlock = ({ children }) => {
+type NotFoundBlockProps = {
+	children?: JSX.Element;
+};
+
+const NotFoundBlock: React.FC<NotFoundBlockProps> = ({ children }) => {
 	return (
 		<div className={styles.root}>
 			<h1>

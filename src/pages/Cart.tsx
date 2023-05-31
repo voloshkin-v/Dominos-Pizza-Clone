@@ -7,13 +7,17 @@ import { clearItems, cartSelector } from '../redux/slices/cartSlice';
 import CartItem from '../components/cartItem/CartItem';
 import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 
-const Cart = () => {
+const Cart: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const { items, totalPrice, totalAmount } = useSelector(cartSelector);
 
 	if (!totalAmount) {
-		return <NotFoundBlock>The cart is empty.</NotFoundBlock>;
+		return (
+			<NotFoundBlock>
+				<p>The cart is empty.</p>
+			</NotFoundBlock>
+		);
 	}
 
 	return (

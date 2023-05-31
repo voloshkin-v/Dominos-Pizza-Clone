@@ -4,35 +4,37 @@ import { useDispatch } from 'react-redux';
 
 import {
 	addItem,
-	incrementItem,
 	removeItem,
 	decrementItem,
 } from '../../redux/slices/cartSlice';
 
 import './cartItem.scss';
 
-const CartItem = ({
-	id,
-	title,
-	imageUrl,
-	imageAlt,
-	price,
-	type,
-	size,
-	count,
-}) => {
+type CartItemProps = {
+	id: number;
+	title: string;
+	imageUrl: string;
+	imageAlt: string;
+	price: number;
+	type: string;
+	size: number;
+	count: number;
+};
+
+const CartItem: React.FC<CartItemProps> = (props) => {
 	const dispatch = useDispatch();
+	const { id, title, imageUrl, imageAlt, price, type, size, count } = props;
 
 	const handleIncrement = () => {
-		dispatch(addItem({ id, type, size }));
+		dispatch(addItem({ ...props }));
 	};
 
 	const handleDecrement = () => {
-		dispatch(decrementItem({ id, type, size }));
+		dispatch(decrementItem({ ...props }));
 	};
 
 	const handleRemove = () => {
-		dispatch(removeItem({ id, type, size }));
+		dispatch(removeItem({ ...props }));
 	};
 
 	return (

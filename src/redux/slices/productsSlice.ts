@@ -12,10 +12,18 @@ type ProductItem = {
 	price: number[];
 };
 
+export enum Status {
+	LOADING = 'loading',
+	SUCCESS = 'success',
+	ERROR = 'error',
+}
+
 interface ProductsSliceState {
 	items: ProductItem[];
-	status: 'loading' | 'success' | 'error';
+	status: Status;
 }
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchData = createAsyncThunk(
 	'products/fetchDataStatus',
@@ -34,7 +42,7 @@ export const fetchData = createAsyncThunk(
 
 const initialState: ProductsSliceState = {
 	items: [],
-	status: 'loading',
+	status: Status.LOADING,
 };
 
 export const productsSlice = createSlice({
@@ -47,17 +55,19 @@ export const productsSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchData.pending, (state) => {
-			state.status = 'loading';
+			if (state.status === 'loading') return;
+
+			state.status = Status.LOADING;
 			state.items = [];
 		});
 
 		builder.addCase(fetchData.fulfilled, (state, action) => {
-			state.status = 'success';
+			state.status = Status.SUCCESS;
 			state.items = action.payload;
 		});
 
 		builder.addCase(fetchData.rejected, (state) => {
-			state.status = 'error';
+			state.status = Status.ERROR;
 			state.items = [];
 		});
 	},

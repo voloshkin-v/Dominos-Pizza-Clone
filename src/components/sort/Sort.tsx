@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 
 import { useSelector } from 'react-redux';
 
@@ -27,7 +27,7 @@ const list: SortItem[] = [
 	},
 ];
 
-const Sort: React.FC<SortProps> = ({ value, onChangeSort }) => {
+const Sort: React.FC<SortProps> = memo(({ value, onChangeSort }) => {
 	const { status } = useSelector(productsSelector);
 	const [open, setOpen] = useState(false);
 	const popupRef = useRef<HTMLDivElement>(null);
@@ -85,6 +85,6 @@ const Sort: React.FC<SortProps> = ({ value, onChangeSort }) => {
 			)}
 		</div>
 	);
-};
+});
 
 export default Sort;

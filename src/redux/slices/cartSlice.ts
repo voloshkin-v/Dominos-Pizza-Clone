@@ -70,15 +70,6 @@ export const cart = createSlice({
 
 			if (findItem) {
 				findItem.count--;
-
-				if (findItem.count === 0) {
-					state.items = state.items.filter(
-						({ id, size, type }) =>
-							id !== findItem.id ||
-							size !== findItem.size ||
-							type !== findItem.type
-					);
-				}
 			}
 
 			state.totalAmount = calculateTotalAmount(state.items);

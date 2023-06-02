@@ -1,15 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import { useAppDispatch } from '../redux/store';
 
 import {
 	setCategoryId,
 	setSort,
 	sortSelector,
 	filterSelector,
+	SortItem,
 } from '../redux/slices/filterSlice';
 
-import { fetchData, productsSelector } from '../redux/slices/productsSlice';
+import {
+	fetchData,
+	productsSelector,
+	Status,
+} from '../redux/slices/productsSlice';
 
 import Categories from '../components/categories/Categories';
 import Sort from '../components/sort/Sort';
@@ -20,17 +27,14 @@ import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
 import Filters from '../components/filters/Filters';
 
 const Home: React.FC = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const sortType = useSelector(sortSelector);
 	const { categoryId } = useSelector(filterSelector);
 	const { items, status } = useSelector(productsSelector);
 	const { searchValue } = useSelector(filterSelector);
 
-	const isFirstMount = useRef(true);
-
 	useEffect(() => {
-		console.log(sortType.name);
 		const query = searchValue ? `q=${searchValue}` : '';
 		const category = categoryId === 0 ? '' : `&category=${categoryId}`;
 		const sort =
@@ -38,10 +42,7 @@ const Home: React.FC = () => {
 				? ''
 				: `&_sort=${sortType.slug}&_order=${sortType.orderBy}`;
 
-		isFirstMount.current = false;
-
 		dispatch(
-			// @ts-ignore
 			fetchData({
 				query,
 				category,
@@ -51,7 +52,9 @@ const Home: React.FC = () => {
 	}, [categoryId, sortType, searchValue]);
 
 	const renderItems = () => {
-		if (status === 'error' || items.length === 0) return;
+		if (status === Status.ERROR || items.length === 0) {
+			return;
+		}
 
 		const pizzaItems = items.map((item) => (
 			<PizzaBlock key={item.id} {...item} />
@@ -60,27 +63,33 @@ const Home: React.FC = () => {
 		return <ul className="content__items">{pizzaItems}</ul>;
 	};
 
-	const listItems = renderItems();
-	const error = status === 'error' ? <Error /> : null;
+	const onChangeCategory = useCallback((id: number) => {
+		dispatch(setCategoryId(id));
+	}, []);
 
-	const skeleton = isFirstMount.current ? (
-		<CardSkeletons itemsCount={16} />
-	) : null;
+	const onChangeSort = useCallback((sortType: SortItem) => {
+		dispatch(setSort(sortType));
+	}, []);
+
+	const listItems = renderItems();
+	const error = status === Status.ERROR ? <Error /> : null;
+
+	const skeleton =
+		status === Status.LOADING ? <CardSkeletons itemsCount={8} /> : null;
 
 	const notFound =
-		status === 'success' && items.length === 0 ? <NotFoundBlock /> : null;
+		status === Status.SUCCESS && items.length === 0 ? (
+			<NotFoundBlock />
+		) : null;
 
 	return (
 		<>
 			<div className="content__top">
 				<Categories
 					value={categoryId}
-					onChangeCategory={(id) => dispatch(setCategoryId(id))}
+					onChangeCategory={onChangeCategory}
 				/>
-				<Sort
-					value={sortType}
-					onChangeSort={(sortType) => dispatch(setSort(sortType))}
-				/>
+				<Sort value={sortType} onChangeSort={onChangeSort} />
 			</div>
 
 			<Filters />

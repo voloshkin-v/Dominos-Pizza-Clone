@@ -2,8 +2,8 @@ import React, { useRef, useState, memo } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { productsSelector } from '../../redux/slices/productsSlice';
-import { SortItem } from '../../redux/slices/filterSlice';
+import { productsSelector } from '../../redux/products/selectors';
+import { SortItem } from '../../redux/filter/types';
 
 import { useOusideClick } from '../../hooks/onOutsideClick';
 

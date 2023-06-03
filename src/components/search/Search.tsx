@@ -3,8 +3,8 @@ import debounce from 'lodash.debounce';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSearchValue } from '../../redux/slices/filterSlice';
-import { productsSelector } from '../../redux/slices/productsSlice';
+import { setSearchValue } from '../../redux/filter/slice';
+import { productsSelector } from '../../redux/products/selectors';
 
 import './search.scss';
 

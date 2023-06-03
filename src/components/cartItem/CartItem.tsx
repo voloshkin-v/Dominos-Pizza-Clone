@@ -2,11 +2,7 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import {
-	addItem,
-	removeItem,
-	decrementItem,
-} from '../../redux/slices/cartSlice';
+import { addItem, removeItem, decrementItem } from '../../redux/cart/slice';
 
 import './cartItem.scss';
 

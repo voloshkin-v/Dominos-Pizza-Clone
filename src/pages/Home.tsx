@@ -4,19 +4,13 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '../redux/store';
 
-import {
-	setCategoryId,
-	setSort,
-	sortSelector,
-	filterSelector,
-	SortItem,
-} from '../redux/slices/filterSlice';
+import { setCategoryId, setSort } from '../redux/filter/slice';
+import { sortSelector, filterSelector } from '../redux/filter/selectors';
+import { SortItem } from '../redux/filter/types';
 
-import {
-	fetchData,
-	productsSelector,
-	Status,
-} from '../redux/slices/productsSlice';
+import { fetchData } from '../redux/products/asyncAction';
+import { productsSelector } from '../redux/products/selectors';
+import { Status } from '../redux/products/types';
 
 import Categories from '../components/categories/Categories';
 import Sort from '../components/sort/Sort';

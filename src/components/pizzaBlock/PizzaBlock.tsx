@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addItem, cartSelector, CartItem } from '../../redux/slices/cartSlice';
+import { addItem } from '../../redux/cart/slice';
+import { cartSelector } from '../../redux/cart/selectors';
+import { CartItem } from '../../redux/cart/types';
 
 import './pizzaBlock.scss';
 

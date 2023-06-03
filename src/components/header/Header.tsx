@@ -1,16 +1,21 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { cartSelector } from '../../redux/slices/cartSlice';
+import { cartSelector } from '../../redux/cart/selectors';
 
 import './header.scss';
 
 import logo from '../../assets/icons/pizza-logo.svg';
 
 const Header = () => {
-	const { totalPrice, totalAmount } = useSelector(cartSelector);
+	const { items, totalPrice, totalAmount } = useSelector(cartSelector);
+
+	useEffect(() => {
+		const data = JSON.stringify(items);
+		localStorage.setItem('cart', data);
+	}, [items]);
 
 	return (
 		<>

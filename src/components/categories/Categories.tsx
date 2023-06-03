@@ -4,7 +4,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 import { useSelector } from 'react-redux';
-import { productsSelector } from '../../redux/slices/productsSlice';
+import { productsSelector } from '../../redux/products/selectors';
 
 import './categories.scss';
 

@@ -1,24 +1,27 @@
 import React, { useEffect, useCallback } from 'react';
 
 import { useSelector } from 'react-redux';
-
 import { useAppDispatch } from '../redux/store';
 
-import { setCategoryId, setSort } from '../redux/filter/slice';
-import { sortSelector, filterSelector } from '../redux/filter/selectors';
 import { SortItem } from '../redux/filter/types';
-
-import { fetchData } from '../redux/products/asyncAction';
-import { productsSelector } from '../redux/products/selectors';
 import { Status } from '../redux/products/types';
 
-import Categories from '../components/categories/Categories';
-import Sort from '../components/sort/Sort';
-import PizzaBlock from '../components/pizzaBlock/PizzaBlock';
-import Error from '../components/error/Error';
-import CardSkeletons from '../components/cardSkeletons/CardSkeletons';
-import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
-import Filters from '../components/filters/Filters';
+import { fetchData } from '../redux/products/asyncAction';
+
+import { sortSelector, filterSelector } from '../redux/filter/selectors';
+import { productsSelector } from '../redux/products/selectors';
+
+import { setCategoryId, setSort } from '../redux/filter/slice';
+
+import {
+	Categories,
+	Sort,
+	PizzaBlock,
+	ErrorMessage,
+	CardSkeletons,
+	NotFoundBlock,
+	Filters,
+} from '../components';
 
 const Home: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -66,7 +69,7 @@ const Home: React.FC = () => {
 	}, []);
 
 	const listItems = renderItems();
-	const error = status === Status.ERROR ? <Error /> : null;
+	const error = status === Status.ERROR ? <ErrorMessage /> : null;
 
 	const skeleton =
 		status === Status.LOADING ? <CardSkeletons itemsCount={8} /> : null;

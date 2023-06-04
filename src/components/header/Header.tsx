@@ -9,7 +9,7 @@ import './header.scss';
 
 import logo from '../../assets/icons/pizza-logo.svg';
 
-const Header = () => {
+const Header: React.FC = () => {
 	const { items, totalPrice, totalAmount } = useSelector(cartSelector);
 
 	useEffect(() => {

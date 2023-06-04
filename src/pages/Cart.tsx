@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { clearItems } from '../redux/cart/slice';
 import { cartSelector } from '../redux/cart/selectors';
+import { clearItems } from '../redux/cart/slice';
 
-import CartItem from '../components/cartItem/CartItem';
-import NotFoundBlock from '../components/notFoundBlock/NotFoundBlock';
+import { NotFoundBlock, CartItem } from '../components';
 
 const Cart: React.FC = () => {
 	const dispatch = useDispatch();

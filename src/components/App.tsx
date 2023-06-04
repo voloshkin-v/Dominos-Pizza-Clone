@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense, lazy } from 'react';
 
 import {
 	createBrowserRouter,
@@ -10,15 +10,30 @@ import {
 import Header from './header/Header';
 import DarkMode from './darkMode/DarkMode';
 import Home from '../pages/Home';
-import NotFound from '../pages/NotFound';
-import Cart from '../pages/Cart';
+
+const Cart = lazy(() => import('../pages/Cart'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<Header />}>
 			<Route index element={<Home />} />
-			<Route path="cart" element={<Cart />} />
-			<Route path="*" element={<NotFound />} />
+			<Route
+				path="cart"
+				element={
+					<Suspense fallback={<div>Loading...</div>}>
+						<Cart />
+					</Suspense>
+				}
+			/>
+			<Route
+				path="*"
+				element={
+					<Suspense fallback={<div>Loading...</div>}>
+						<NotFound />
+					</Suspense>
+				}
+			/>
 		</Route>
 	)
 );
